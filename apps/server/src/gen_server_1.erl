@@ -51,15 +51,15 @@ handle_info(random_number_msg, #state{connection = Connection} = State) ->
     {ok, RandNumber} = eredis:q(Connection, ["RPOP", "QueueKey"]),
     IsPrime = is_prime(list_to_integer(binary_to_list(RandNumber))),
     if 
-    IsPrime -> eredis:q(Connection, ["SADD", "ResultSetKey", RandNumber]);
-    true -> false
+        IsPrime -> eredis:q(Connection, ["SADD", "ResultSetKey", RandNumber]);
+        true -> false
     end,
     erlang:send_after(200, self(), random_number_msg),
     {noreply, State}.
 
 terminate(_Reason, _State) -> ok.
 
-code_change(_OldVsn, State, _Extra) ->  {ok, State}.
+code_change(_OldVsn, State, _Extra) -> {ok, State}.
 
 %%%===================================================================
 %%% Internal functions
@@ -67,12 +67,12 @@ code_change(_OldVsn, State, _Extra) ->  {ok, State}.
 
 is_prime(Number) when Number < 4 -> true;
 is_prime(Number) ->
-  Num = Number div 2, 
-  List = lists:seq(2, Num),
-  case lists:search(fun(Elem) -> Number rem Elem == 0 end, List) of
+    Num = Number div 2, 
+    List = lists:seq(2, Num),
+    case lists:search(fun(Elem) -> Number rem Elem == 0 end, List) of
       false -> true;
       _ -> false
-  end.   
+    end.   
 
 
 

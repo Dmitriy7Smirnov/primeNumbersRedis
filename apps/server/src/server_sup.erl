@@ -7,7 +7,7 @@
 
 %% API
 -export([
-	start_link/0
+    start_link/0
 ]).
 
 %% Supervisor callbacks
@@ -18,7 +18,7 @@
 %%%===================================================================
 
 start_link() ->
-  supervisor:start_link({local, ?MODULE}, ?MODULE, []).
+    supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
 %%%===================================================================
 %%% Supervisor callbacks
@@ -30,7 +30,7 @@ init(_Args) ->
             strategy => one_for_one,
             intensity => 10000,
             period => 60
-        },
+         },
 
     ChildSpecifications =
         [
