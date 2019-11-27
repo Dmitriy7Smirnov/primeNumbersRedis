@@ -7,8 +7,8 @@
 
 %% Application callbacks
 -export([
-	start/2, 
-	stop/1
+    start/2, 
+    stop/1
 ]).
 
 %%%===================================================================
@@ -16,20 +16,7 @@
 %%%===================================================================
 
 start(_StartType, _StartArgs) ->
-%    case serversup:start_link() of
-%        {ok, Pid} ->
-%            {ok, Pid};
-%        Error ->
-%            Error
-%    end.
-%{ok, C} = eredis:start_link(),
-%{ok, _ElemCnt} = eredis:q(C, ["LPUSH", "mylist", "bar"]),
-%{ok, <<"bar">>} = eredis:q(C, ["RPOP", "mylist"]),
-%X = 777,
-%erlang:display(X),
-Pid = spawn(server_sup, start_link, []),
-{ok, Pid}.
-
+    server_sup:start_link().
 
 stop(_State) ->
     ok.

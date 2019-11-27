@@ -18,10 +18,7 @@
 %%%===================================================================
 
 start_link() ->
-  supervisor:start_link({local, ?MODULE}, ?MODULE, []),
-  receive
-    _Msg -> 77
-  end.
+  supervisor:start_link({local, ?MODULE}, ?MODULE, []).
 
 %%%===================================================================
 %%% Supervisor callbacks

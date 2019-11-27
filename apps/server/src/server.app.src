@@ -4,5 +4,5 @@
     {modules,[]},
     {registered,[]},
     {applications,[kernel,stdlib]},
-	{mod,{server_app,[]}} 
+    {mod,{server_app,[]}} 
 ]}.
