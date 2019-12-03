@@ -1,8 +1,7 @@
-{application, server, [
-    {description,"Description"},
-    {vsn,"1.0"},
-    {modules,[server_sup,server_app,gen_server_1]},
-    {registered,[]},
-    {applications,[kernel,stdlib]},
-    {mod,{server_app,[]}} 
-]}.
+{application,server,
+             [{description,"Description"},
+              {vsn,"1.0"},
+              {modules,[gen_server_1,server_app,server_config,server_sup]},
+              {registered,[]},
+              {applications,[kernel,stdlib]},
+              {mod,{server_app,[]}}]}.
