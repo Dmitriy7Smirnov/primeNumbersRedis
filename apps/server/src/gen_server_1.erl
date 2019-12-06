@@ -68,8 +68,7 @@ code_change(_OldVsn, State, _Extra) -> {ok, State}.
 
 is_prime(Number) when  Number < 4 -> true;
 is_prime (Number) when Number rem 2 == 0 -> false;
-is_prime (Number) when Number rem 3 == 0 -> false;
-is_prime(Number) -> is_prime1(Number, 5, erlang:trunc(math:sqrt(Number))).
+is_prime(Number) -> is_prime1(Number, 3, erlang:trunc(math:sqrt(Number))).
 is_prime1(_Number, Divisor, TheBiggestDivisor) when Divisor > TheBiggestDivisor -> true;
 is_prime1(Number, Divisor, _TheBiggestDivisor) when Number rem Divisor == 0 -> false;
 is_prime1(Number, Divisor, TheBiggestDivisor) -> is_prime1(Number, Divisor + 2, TheBiggestDivisor).
